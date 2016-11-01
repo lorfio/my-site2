@@ -1,5 +1,14 @@
 {% extends 'blog/base.html' %}
 
+{% block menu %}
+  <div class="general-menu">
+    <h1><a href="/">Recensioni</h1>
+      <ul><a href="/">Films</a></ul>
+      <ul><a href="/">Games</a></ul>
+      <ul><a href="/">Series</a></ul>
+    <h1><a href="/">Last post</h1>
+  </div>
+{% endblock %}
 {% block content %}
             {% for post in posts %}
                 <div class="post">
@@ -11,4 +20,3 @@
                 </div>
             {% endfor %}
 {% endblock content %}
-
