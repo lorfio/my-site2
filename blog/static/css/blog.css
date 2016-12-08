@@ -11,7 +11,7 @@
 }
 
 body {
-    background-color: #69B0FF;
+    background-color: #000000;
 }
 
 html, body {
@@ -20,7 +20,7 @@ html, body {
 
 .page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
     color: #ffffff;
-    font-size: 36pt;
+    font-size: 46pt;
     text-decoration: none;
 }
 

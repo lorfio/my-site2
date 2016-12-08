@@ -1,0 +1,64 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'css/registration.css' %}">
+{% endblock %}
+
+{% block content %}
+<form class="registration-form" action="{% url 'registration' %}" method="post">
+  {% csrf_token %}
+  <table>
+    <tr>
+      <th>
+        {{ form.username.label_tag }}
+      </th>
+      <td>
+         {{ form.username }}
+      <td>
+    <tr>
+    <tr>
+      <th>
+        {{ form.password.label_tag }}
+      </th>
+      <td>
+        {{ form.password }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        <label for="confirm-password">confirm-password: </label>
+      </th>
+      <td>
+        <input id="confirm-password" type="password">
+      </td>
+    </tr>
+    <tr>
+      <th>
+        {{ form.firstname.label_tag }}
+      </th>
+      <td>
+        {{ form.firstname }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        {{ form.lastname.label_tag }}
+      </th>
+      <td>
+        {{ form.lastname }}
+      </td>
+    </tr>
+    <tr>
+      <th>
+        {{ form.email.label_tag }}
+      </th>
+      <td>
+        {{ form.email }}
+      </td>
+    </tr>
+  </table>
+  <input class ="btn btn-default" type="submit" value="registra">
+  <a class = "btn btn-default back" href="/">indietro</a>
+</form>
+{% endblock %}

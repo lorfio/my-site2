@@ -1,0 +1,13 @@
+.registration-form th,td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.back {
+  float: right;
+  margin-top: 30px;
+}
+
+.btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

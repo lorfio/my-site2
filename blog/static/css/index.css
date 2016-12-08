@@ -1,0 +1,47 @@
+p {
+  color:#ffffff;
+  font-size: 16px;
+}
+
+.site-title {
+  display: inline;
+  font-size: 16px;
+}
+
+ul {
+  font-size: 16px;
+}
+
+.dx {
+  float: right;
+}
+
+.header-button {
+  margin-top: 15px;
+  width: auto;
+  height: auto;
+}
+
+.header-username {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.reg-period {
+  font-size: 10px;
+}
+
+.form-errors li {
+  color:red;
+  list-style-type: none;
+}
+
+.login-form th,td {
+  padding-top: 10px;
+}
+
+.btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
