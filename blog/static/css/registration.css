@@ -1,13 +1,12 @@
 .registration-form th,td {
+  color: #DB5800;
   padding-top: 10px;
   padding-bottom: 10px;
-}
-.back {
-  float: right;
-  margin-top: 30px;
+  padding-right: 20px;
 }
 
-.btn {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.errorlist li {
+  float:right;
+  color:red;
+  list-style-type: none;
 }

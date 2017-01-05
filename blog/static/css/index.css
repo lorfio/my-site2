@@ -1,13 +1,3 @@
-p {
-  color:#ffffff;
-  font-size: 16px;
-}
-
-.site-title {
-  display: inline;
-  font-size: 16px;
-}
-
 ul {
   font-size: 16px;
 }
@@ -25,23 +15,28 @@ ul {
 .header-username {
   margin-top: 15px;
   font-size: 16px;
-  color: #ffffff;
+  color: #DB5800;
 }
 
 .reg-period {
   font-size: 10px;
 }
 
+.reg-period a {
+  color: #008F68;
+}
+
 .form-errors li {
-  color:red;
+  color:#FF0000;
   list-style-type: none;
 }
 
 .login-form th,td {
+  color: #DB5800;
   padding-top: 10px;
+  padding-right: 20px;
 }
 
-.btn {
-  margin-top: 20px;
-  margin-bottom: 20px;
+.post:hover {
+  border: 1px solid #008F68;;
 }

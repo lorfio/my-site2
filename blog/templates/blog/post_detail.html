@@ -5,10 +5,14 @@
 		{% if post.published_date %}
 			<div class="date">
 				{{ post.published_date }}
-			</div>		
+			</div>
 		{% endif %}
-		<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+		{% if request.user.is_staff %}
+			<a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> edit</a>
+			<a class="btn btn-default" href="{% url 'post_new' %}"><span class="glyphicon glyphicon-pencil"></span> new</a>
+		{% endif %}
+		<a class="btn btn-default" href="{% url 'index' %}"><span class="glyphicon glyphicon-arrow-left"></span> back</a>
 		<h1>{{ post.title }}</h1>
-    <p>{{ post.text|linebreaksbr }}</p>
-	</div>		
+    <p>{{ post.text|safe|linebreaksbr }}</p>
+	</div>
 {% endblock %}

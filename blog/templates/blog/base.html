@@ -3,36 +3,50 @@
   <head>
 	  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 	  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-	  <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Orbitron" rel="stylesheet" type="text/css">
       <title>My blog</title>
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <script type="text/javascript" src="{% static 'jquery-3.1.1.min.js' %}"></script>
+    <script src="//cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
     {% block head %}
     {% endblock %}
   </head>
 	<body>
   	<div class="page-header">
       <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-2">
           </div>
-          <div class="col-md-6">
-            <h1 class = "site-title"><a href="/">TrialTechSite</a></h1>
+          <div class="col-md-7">
+            <h1 id = "site-title"><a href="/">TrialTechSite</a></h1>
           </div>
           <div class="col-md-3">
+            {% if user.is_authenticated %}
+              <form class="logout-form" action="{% url 'log_out' %}" method="post">{% csrf_token %}
+                <div class="row">
+                  <input class ="btn btn-default" type="submit" value="logout">
+                </div>
+              </form>
+            {% endif %}
           </div>
         </div>
     </div>
 
     <div class="content container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-2">
                 {% block menu %}
                 {% endblock %}
             </div>
-           	<div class="col-md-6">
+           	<div class="col-md-7">
             		{% block content %}
             		{% endblock %}
            	</div>
             <div class="col-md-3">
+                {% if user.is_authenticated %}
+                  <div class="row">
+                    <p id="hiuser">Hi <a href="{% url 'userProfile' user.id %}">{{ user }}</a></p>
+                  </div>
+                {% endif %}
                 {% block details %}
                 {% endblock %}
             </div>
@@ -42,9 +56,9 @@
       <div class="row">
           <div class="col-md-2">
           </div>
-          <div class="col-md-8">
+          <div class="col-md-7">
            </div>
-           <div class="col-md-2">
+           <div class="col-md-3">
            </div>
         </div>
     </div>

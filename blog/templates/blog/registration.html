@@ -14,23 +14,24 @@
         {{ form.username.label_tag }}
       </th>
       <td>
-         {{ form.username }}
+         {{ form.username }}<td>{{form.username.errors}}</td>
       <td>
-    <tr>
+    </tr>
     <tr>
       <th>
         {{ form.password.label_tag }}
       </th>
       <td>
-        {{ form.password }}
+        {{ form.password }}<td>{{ form.password.errors}}</td>
       </td>
     </tr>
     <tr>
       <th>
-        <label for="confirm-password">confirm-password: </label>
+        {{ form.confirmPassword.label_tag }}
       </th>
       <td>
-        <input id="confirm-password" type="password">
+        {{ form.confirmPassword }}<td>{{ form.non_field_errors}}</td>
+      </td>
       </td>
     </tr>
     <tr>
@@ -38,7 +39,7 @@
         {{ form.firstname.label_tag }}
       </th>
       <td>
-        {{ form.firstname }}
+        {{ form.firstname }} <td>{{form.firstname.errors}}</td>
       </td>
     </tr>
     <tr>
@@ -46,7 +47,7 @@
         {{ form.lastname.label_tag }}
       </th>
       <td>
-        {{ form.lastname }}
+        {{ form.lastname }}<td>{{form.lastname.errors}}</td>
       </td>
     </tr>
     <tr>
@@ -54,11 +55,11 @@
         {{ form.email.label_tag }}
       </th>
       <td>
-        {{ form.email }}
+        {{ form.email }}<td>{{form.email.errors}}</td>
       </td>
     </tr>
   </table>
-  <input class ="btn btn-default" type="submit" value="registra">
+  <input id="registra" class ="btn btn-default" type="submit" value="registra">
   <a class = "btn btn-default back" href="/">indietro</a>
 </form>
 {% endblock %}

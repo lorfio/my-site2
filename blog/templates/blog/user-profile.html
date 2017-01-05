@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+{% load staticfiles %}
+
+{% block menu %}
+<table>
+  <tr>
+    <th>
+      <p>Username</p>
+    </th>
+    <td>
+      <p>{{ user.get_username }}</p>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <p>Full name</p>
+    </th>
+    <td>
+      <p>{{ user.get_full_name }}</p>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <p>Email</p>
+    </th>
+    <td>
+      <p>{{ user.email }}</p>
+    </td>
+  </tr>
+</table>
+<a class = "btn btn-default back" href="/">edit</a>
+<a class = "btn btn-default back" href="/">indietro</a>
+{% endblock %}

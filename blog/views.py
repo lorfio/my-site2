@@ -1,7 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from django.contrib.auth import authenticate,login,logout
+from django.contrib.auth.models import User
 from django.contrib import messages
+from django.http import HttpResponseForbidden
 from .models import Post
 from .forms import PostForm,LoginForm,RegistrationForm
 
@@ -9,17 +11,19 @@ from .forms import PostForm,LoginForm,RegistrationForm
 #view for index page
 def index(request):
 	form = LoginForm
-	return render(request, 'blog/index.html', {'form':form})
+	posts = Post.objects.all().order_by('published_date')
+	return render(request, 'blog/index.html', {'form':form, 'posts':posts })
 #----------------------------------------------------------------------#
 
 def log_in(request):
 	form = LoginForm(request.POST or None)
+	posts = Post.objects.all().order_by('published_date')
 	if request.POST and form.is_valid():
 		user = form.login(request)
 		if user:
 			login(request, user)
 			return redirect('index')
-	return render(request, 'blog/index.html', {'form':form})
+	return render(request, 'blog/index.html', {'form':form, 'posts':posts })
 
 def log_out(request):
 	if request.method == 'POST':
@@ -34,6 +38,13 @@ def registration(request):
 		return redirect('index')
 	return render(request, 'blog/registration.html', {'form': form})
 
+def userProfile(request, pk):
+	user = get_object_or_404(User, pk=pk)
+	if request.user.is_anonymous():
+		return redirect('index')
+	if request.user != user:
+		return redirect('index')
+	return render(request, 'blog/user-profile.html', {'user':user})
 #---------------------------- post_list -------------------------------
 
 def post_list(request):
