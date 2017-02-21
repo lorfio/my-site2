@@ -81,6 +81,10 @@ p {
     padding-top: 10px;
 }
 
+.post p,li {
+    color: #DB5800;
+}
+
 .general-menu h1 a, .general-menu ul a, h1 {
   color: #008F68;
 }
